@@ -1,0 +1,49 @@
+﻿@using Partners.Web.Data.Entities
+@model Partner
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <h2>Partner Details</h2>
+    <dl class="row">
+        <dt class="col-sm-3">First Name:</dt>
+        <dd class="col-sm-9">@Model.FirstName</dd>
+
+        <dt class="col-sm-3">Last Name:</dt>
+        <dd class="col-sm-9">@Model.LastName</dd>
+
+        <dt class="col-sm-3">Address:</dt>
+        <dd class="col-sm-9">@Model.Address</dd>
+
+        <dt class="col-sm-3">Partner Number:</dt>
+        <dd class="col-sm-9">@Model.PartnerNumber</dd>
+
+        <dt class="col-sm-3">Croatian PIN:</dt>
+        <dd class="col-sm-9">@Model.CroatianPIN</dd>
+
+        <dt class="col-sm-3">Partner Type:</dt>
+        <dd class="col-sm-9">@((Model.PartnerTypeId == 1 ? "Personal" : "Legal"))</dd>
+
+        <dt class="col-sm-3">Created At:</dt>
+        <dd class="col-sm-9">@Model.CreatedAtUtc.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+
+        <dt class="col-sm-3">Created By User:</dt>
+        <dd class="col-sm-9">@Model.CreateByUser</dd>
+
+        <dt class="col-sm-3">Is Foreign:</dt>
+        <dd class="col-sm-9">@((Model.IsForeign ? "Yes" : "No"))</dd>
+
+        <dt class="col-sm-3">External Code:</dt>
+        <dd class="col-sm-9">@Model.ExternalCode</dd>
+
+        <dt class="col-sm-3">Gender:</dt>
+        <dd class="col-sm-9">@((Model.Gender == 'M' ? "Male" : (Model.Gender == 'F' ? "Female" : "Not Specified")))</dd>
+    </dl>
+    <div>
+        <a href="@Url.Action("Index", "Partners")" class="btn btn-secondary">Back to List</a>
+        <a href="@Url.Action("Edit", "Partners", new { id = Model.Id })" class="btn btn-primary">Edit</a>
+        <a href="@Url.Action("Delete", "Partners", new { id = Model.Id })" class="btn btn-danger">Delete</a>
+    </div>
+</div>

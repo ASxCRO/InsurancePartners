@@ -1,0 +1,56 @@
+﻿@using Partners.Web.Data.Entities
+@model IEnumerable<Partner>
+
+@{
+    ViewBag.Title = "Partneri";
+}
+
+<div class="container">
+    <h2>Partner List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Partner Number</th>
+                <th>Croatian PIN</th>
+                <th>Partner Type</th>
+                <th>Created At</th>
+                <th>Created By User</th>
+                <th>Is Foreign</th>
+                <th>External Code</th>
+                <th>Gender</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var partner in Model)
+            {
+                <tr>
+                    <td>@partner.FirstName</td>
+                    <td>@partner.LastName</td>
+                    <td>@partner.Address</td>
+                    <td>@partner.PartnerNumber</td>
+                    <td>@partner.CroatianPIN</td>
+                    <td>@(partner.PartnerTypeId == 1 ? "Personal" : "Legal")</td>
+                    <td>@partner.CreatedAtUtc.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@partner.CreateByUser</td>
+                    <td>@(partner.IsForeign ? "Yes" : "No")</td>
+                    <td>@partner.ExternalCode</td>
+                    <td>@(partner.Gender == 'M' ? "Male" : (partner.Gender == 'F' ? "Female" : "Not Specified"))</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="@Url.Action("Details", "Partners", new { id = partner.Id })" class="btn btn-primary">Details</a>
+                            <a href="@Url.Action("Edit", "Partners", new { id = partner.Id })" class="btn btn-warning">Edit</a>
+                            <form method="post" action="@Url.Action("Delete", "Partners", new { id = partner.Id })">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this partner?')">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("Create", "Partners")" class="btn btn-success">Add Partner</a>
+</div>

@@ -1,0 +1,87 @@
+﻿@using Partners.Web.Data.Entities
+@model Partner
+
+@{
+    ViewBag.Title = "Add Partner";
+}
+
+<div class="container">
+    <h2>Add Partner</h2>
+    @using (Html.BeginForm("Create", "Partners", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName)
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName)
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address)
+            @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PartnerNumber)
+            @Html.TextBoxFor(model => model.PartnerNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PartnerNumber)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CroatianPIN)
+            @Html.TextBoxFor(model => model.CroatianPIN, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CroatianPIN)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PartnerTypeId)
+            @Html.DropDownListFor(model => model.PartnerTypeId, new SelectList(new[]
+            {
+                new SelectListItem { Text = "Personal", Value = "1" },
+                new SelectListItem { Text = "Legal", Value = "2" }
+            }, "Value", "Text"), "Select Partner Type", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PartnerTypeId)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsForeign)
+            <div class="form-check">
+                <label class="form-check-label">
+                    @Html.CheckBoxFor(model => model.IsForeign, new { @class = "form-check-input" }) Is Foreign
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExternalCode)
+            @Html.TextBoxFor(model => model.ExternalCode, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ExternalCode)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender)
+            <div class="form-check">
+                <label class="form-check-label">
+                    @Html.RadioButtonFor(model => model.Gender, "M", new { @class = "form-check-input" }) Male
+                </label>
+                <label class="form-check-label">
+                    @Html.RadioButtonFor(model => model.Gender, "F", new { @class = "form-check-input" }) Female
+                </label>
+                <label class="form-check-label">
+                    @Html.RadioButtonFor(model => model.Gender, "N", new { @class = "form-check-input" }) Not Specified
+                </label>
+            </div>
+            @Html.ValidationMessageFor(model => model.Gender)
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>
