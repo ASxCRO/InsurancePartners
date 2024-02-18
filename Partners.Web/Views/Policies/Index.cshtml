@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Partners.Web.Data.Entities.Policy>
+@{ 
+    var partnerId = ViewBag["PartnerId"];
+}
+<h2>Policy List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Policy Number</th>
+            <th>Policy Amount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var policy in Model)
+        {
+            <tr>
+                <td>@policy.PolicyNumber</td>
+                <td>@policy.PolicyAmount</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = policy.Id })">Details</a> |
+                    <a href="@Url.Action("Edit", new { id = policy.Id })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = policy.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", new {id=partnerId})" class="btn btn-primary">Add New Policy</a>

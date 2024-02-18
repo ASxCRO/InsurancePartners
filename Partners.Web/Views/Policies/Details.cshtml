@@ -1,0 +1,16 @@
+﻿@model Partners.Web.Data.Entities.Policy
+
+<h2>Policy Details</h2>
+
+<dl class="dl-horizontal">
+    <dt>Policy Number:</dt>
+    <dd>@Model.PolicyNumber</dd>
+
+    <dt>Policy Amount:</dt>
+    <dd>@Model.PolicyAmount</dd>
+</dl>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

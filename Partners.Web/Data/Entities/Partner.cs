@@ -9,8 +9,8 @@ namespace Partners.Web.Data.Entities
         [StringLength(255, MinimumLength = 2, ErrorMessage = "First Name must be between 2 and 255 characters.")]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "First Name is required.")]
-        [StringLength(255, MinimumLength = 2, ErrorMessage = "First Name must be between 2 and 255 characters.")]
+        [Required(ErrorMessage = "Last Name is required.")]
+        [StringLength(255, MinimumLength = 2, ErrorMessage = "Last Name must be between 2 and 255 characters.")]
         public string LastName { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";

@@ -161,6 +161,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\PartnersController.cs" />
+    <Compile Include="Controllers\PoliciesController.cs" />
     <Compile Include="Data\Entities\BaseEntity.cs" />
     <Compile Include="Data\Entities\Partner.cs" />
     <Compile Include="Data\Entities\Policy.cs" />
@@ -229,10 +230,14 @@
     <Content Include="Views\Partners\Details.cshtml" />
     <Content Include="Views\Partners\Edit.cshtml" />
     <Content Include="Views\Partners\Delete.cshtml" />
+    <Content Include="Views\Policies\Index.cshtml" />
+    <Content Include="Views\Policies\Create.cshtml" />
+    <Content Include="Views\Policies\Delete.cshtml" />
+    <Content Include="Views\Policies\Edit.cshtml" />
+    <Content Include="Views\Policies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

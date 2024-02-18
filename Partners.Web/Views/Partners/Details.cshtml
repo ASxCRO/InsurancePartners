@@ -8,11 +8,8 @@
 <div class="container">
     <h2>Partner Details</h2>
     <dl class="row">
-        <dt class="col-sm-3">First Name:</dt>
-        <dd class="col-sm-9">@Model.FirstName</dd>
-
-        <dt class="col-sm-3">Last Name:</dt>
-        <dd class="col-sm-9">@Model.LastName</dd>
+        <dt class="col-sm-3">Full Name:</dt>
+        <dd class="col-sm-9">@Model.FirstName @Model.LastName</dd>
 
         <dt class="col-sm-3">Address:</dt>
         <dd class="col-sm-9">@Model.Address</dd>
@@ -42,6 +39,10 @@
         <dd class="col-sm-9">@((Model.Gender == 'M' ? "Male" : (Model.Gender == 'F' ? "Female" : "Not Specified")))</dd>
     </dl>
     <div>
+        @using (Html.BeginForm("Index", "Policies", new { id = Model.Id }, FormMethod.Get))
+        {
+            <button type="submit" class="btn btn-info">Show Policies</button>
+        }
         <a href="@Url.Action("Index", "Partners")" class="btn btn-secondary">Back to List</a>
         <a href="@Url.Action("Edit", "Partners", new { id = Model.Id })" class="btn btn-primary">Edit</a>
         <a href="@Url.Action("Delete", "Partners", new { id = Model.Id })" class="btn btn-danger">Delete</a>

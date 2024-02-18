@@ -10,16 +10,14 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>First Name</th>
+                <th>Full Name</th>
                 <th>Last Name</th>
-                <th>Address</th>
                 <th>Partner Number</th>
                 <th>Croatian PIN</th>
                 <th>Partner Type</th>
                 <th>Created At</th>
                 <th>Created By User</th>
                 <th>Is Foreign</th>
-                <th>External Code</th>
                 <th>Gender</th>
                 <th>Actions</th>
             </tr>
@@ -28,16 +26,13 @@
             @foreach (var partner in Model)
             {
                 <tr>
-                    <td>@partner.FirstName</td>
-                    <td>@partner.LastName</td>
-                    <td>@partner.Address</td>
+                    <td>@partner.FirstName @partner.LastName</td>
                     <td>@partner.PartnerNumber</td>
                     <td>@partner.CroatianPIN</td>
                     <td>@(partner.PartnerTypeId == 1 ? "Personal" : "Legal")</td>
                     <td>@partner.CreatedAtUtc.ToString("yyyy-MM-dd HH:mm:ss")</td>
                     <td>@partner.CreateByUser</td>
                     <td>@(partner.IsForeign ? "Yes" : "No")</td>
-                    <td>@partner.ExternalCode</td>
                     <td>@(partner.Gender == 'M' ? "Male" : (partner.Gender == 'F' ? "Female" : "Not Specified"))</td>
                     <td>
                         <div class="btn-group">

@@ -1,0 +1,22 @@
+﻿@model Partners.Web.Data.Entities.Policy
+
+@using (Html.BeginForm("Edit", "Policies", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.PartnerId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PolicyNumber)
+        @Html.TextBoxFor(model => model.PolicyNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.PolicyNumber)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PolicyAmount)
+        @Html.TextBoxFor(model => model.PolicyAmount, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.PolicyAmount)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default" })
+}
