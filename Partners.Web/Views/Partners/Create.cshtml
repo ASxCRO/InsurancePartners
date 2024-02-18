@@ -69,13 +69,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Gender)
             <div class="form-check">
-                <label class="form-check-label">
+                <label class="form-check-label m-4">
                     @Html.RadioButtonFor(model => model.Gender, "M", new { @class = "form-check-input" }) Male
                 </label>
-                <label class="form-check-label">
+                <label class="form-check-label m-4">
                     @Html.RadioButtonFor(model => model.Gender, "F", new { @class = "form-check-input" }) Female
                 </label>
-                <label class="form-check-label">
+                <label class="form-check-label m-4">
                     @Html.RadioButtonFor(model => model.Gender, "N", new { @class = "form-check-input" }) Not Specified
                 </label>
             </div>

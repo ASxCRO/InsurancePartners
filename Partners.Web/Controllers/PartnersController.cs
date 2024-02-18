@@ -6,9 +6,9 @@ namespace Partners.Web.Controllers
 {
     public class PartnersController : Controller
     {
-        private readonly IRepository<Partner> _partnerRepository;
+        private readonly IPartnerRepository _partnerRepository;
 
-        public PartnersController(IRepository<Partner> partnerRepository)
+        public PartnersController(IPartnerRepository partnerRepository)
         {
             _partnerRepository = partnerRepository;
         }
@@ -17,7 +17,7 @@ namespace Partners.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var partners = _partnerRepository.FindAll();
+            var partners = _partnerRepository.GetPartnersWithPolicySummary();
             return View("Index", partners);
         }
 

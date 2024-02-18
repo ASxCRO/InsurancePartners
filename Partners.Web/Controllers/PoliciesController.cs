@@ -19,7 +19,7 @@ namespace Partners.Web.Controllers
         public ActionResult Index(int id)
         {
             var policies = _policyRepository.FindAll().Where(x=>x.PartnerId == id);
-            ViewBag["PartnerId"] = id;
+            ViewBag.PartnerId = id;
             return View("Index", policies);
         }
 
@@ -28,6 +28,7 @@ namespace Partners.Web.Controllers
         public ActionResult Details(int id)
         {
             var policy = _policyRepository.FindByID(id);
+            ViewBag.PartnerId = policy.PartnerId;
             if (policy == null)
                 return HttpNotFound();
             return View("Details", policy);
@@ -37,7 +38,7 @@ namespace Partners.Web.Controllers
         [HttpGet]
         public ActionResult Create(int id)
         {
-            ViewBag["PartnerId"] = id;
+            ViewBag.PartnerId = id;
             return View();
         }
 
@@ -49,8 +50,9 @@ namespace Partners.Web.Controllers
             if (ModelState.IsValid)
             {
                 _policyRepository.Add(policy);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new {id = policy.PartnerId});
             }
+            ViewBag.PartnerId = policy.PartnerId;
             return View(policy);
         }
 
@@ -59,6 +61,7 @@ namespace Partners.Web.Controllers
         public ActionResult Edit(int id)
         {
             var policy = _policyRepository.FindByID(id);
+            ViewBag.PartnerId = policy.PartnerId;
             if (policy == null)
                 return HttpNotFound();
             return View("Edit", policy);
@@ -72,8 +75,9 @@ namespace Partners.Web.Controllers
             if (ModelState.IsValid)
             {
                 _policyRepository.Update(policy);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = policy.PartnerId });
             }
+            ViewBag.PartnerId = policy.PartnerId;
             return View(policy);
         }
 
@@ -82,6 +86,7 @@ namespace Partners.Web.Controllers
         public ActionResult Delete(int id)
         {
             var policy = _policyRepository.FindByID(id);
+            ViewBag.PartnerId = policy.PartnerId;
             if (policy == null)
                 return HttpNotFound();
             return View("Delete", policy);

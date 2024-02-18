@@ -1,5 +1,9 @@
 ﻿@model Partners.Web.Data.Entities.Policy
 
+@{
+    var id = (int)ViewBag.PartnerId;
+}
+
 <h2>Policy Details</h2>
 
 <dl class="dl-horizontal">
@@ -12,5 +16,5 @@
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = id })
 </p>

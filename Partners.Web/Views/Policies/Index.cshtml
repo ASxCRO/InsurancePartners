@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Partners.Web.Data.Entities.Policy>
 @{ 
-    var partnerId = ViewBag["PartnerId"];
+    var partnerId = (int)ViewBag.PartnerId;
 }
 <h2>Policy List</h2>
 
@@ -19,9 +19,9 @@
                 <td>@policy.PolicyNumber</td>
                 <td>@policy.PolicyAmount</td>
                 <td>
-                    <a href="@Url.Action("Details", new { id = policy.Id })">Details</a> |
-                    <a href="@Url.Action("Edit", new { id = policy.Id })">Edit</a> |
-                    <a href="@Url.Action("Delete", new { id = policy.Id })">Delete</a>
+                    <a href="@Url.Action("Details", new { id = policy.Id })" class="btn btn-primary">Details</a> |
+                    <a href="@Url.Action("Edit", new { id = policy.Id })" class="btn btn-warning">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = policy.Id })" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }

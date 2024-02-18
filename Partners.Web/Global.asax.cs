@@ -29,7 +29,7 @@ namespace Partners.Web
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
             // Register repositories
-            builder.RegisterType<PartnerRepository>().As<IRepository<Partner>>();
+            builder.RegisterType<PartnerRepository>().As<IPartnerRepository>();
             builder.RegisterType<PolicyRepository>().As<IRepository<Policy>>();
 
             var container = builder.Build();

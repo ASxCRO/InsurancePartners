@@ -165,12 +165,14 @@
     <Compile Include="Data\Entities\BaseEntity.cs" />
     <Compile Include="Data\Entities\Partner.cs" />
     <Compile Include="Data\Entities\Policy.cs" />
+    <Compile Include="Data\Repositories\IPartnerRepository.cs" />
     <Compile Include="Data\Repositories\IRepository.cs" />
     <Compile Include="Data\Repositories\PartnerRepository.cs" />
     <Compile Include="Data\Repositories\PolicyRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PartnerWithPolicySummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +192,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Data\sql.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

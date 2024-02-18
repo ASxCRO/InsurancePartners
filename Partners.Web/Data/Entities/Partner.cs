@@ -29,12 +29,8 @@ namespace Partners.Web.Data.Entities
         [Range(1, 2, ErrorMessage = "Invalid Partner Type.")]
         public int PartnerTypeId { get; set; }
 
-        [Required(ErrorMessage = "Created At is required.")]
         public DateTime CreatedAtUtc { get; set; }
 
-        [Required(ErrorMessage = "Created By User is required.")]
-        [EmailAddress(ErrorMessage = "Invalid email address.")]
-        [StringLength(255, ErrorMessage = "Created By User cannot exceed 255 characters.")]
         public string CreateByUser { get; set; }
 
         [Required(ErrorMessage = "Is Foreign is required.")]
